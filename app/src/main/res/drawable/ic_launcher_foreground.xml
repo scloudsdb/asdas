@@ -1,0 +1,51 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Beamed eighth notes centered in safe zone -->
+    <group
+        android:translateX="26"
+        android:translateY="22">
+        <!-- Note head left -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M12,50 C12,47 16,44 21,44 C26,44 28,47 28,50 C28,53 24,56 19,56 C14,56 12,53 12,50 Z" />
+        <!-- Note head right -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M40,42 C40,39 44,36 49,36 C54,36 56,39 56,42 C56,45 52,48 47,48 C42,48 40,45 40,42 Z" />
+        <!-- Stem left -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M26,10 L26,48 L29,48 L29,10 Z" />
+        <!-- Stem right -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M54,2 L54,40 L57,40 L57,2 Z" />
+        <!-- Beam top -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M26,10 L57,2 L57,7 L26,15 Z" />
+        <!-- Beam bottom -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M26,18 L57,10 L57,15 L26,23 Z" />
+    </group>
+    <!-- Orion constellation stars -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M30,25 A2,2 0 1,1 30.01,25" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M80,28 A1.5,1.5 0 1,1 80.01,28" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M84,76 A1.5,1.5 0 1,1 84.01,76" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M24,80 A2,2 0 1,1 24.01,80" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M36,20 A1,1 0 1,1 36.01,20" />
+</vector>
