@@ -16,7 +16,7 @@ object IntegrityChecker {
     }
 
     fun detect(context: Context): Boolean =
-        hasSignatureChanged(context) || isSideloaded(context)
+        hasSignatureChanged(context)
 
     private fun computeSignatureHash(context: Context): String? = runCatching {
         val signers = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
@@ -40,15 +40,4 @@ object IntegrityChecker {
         val current = computeSignatureHash(context) ?: return false
         return baselineHash != null && current != baselineHash
     }
-
-    private fun isSideloaded(context: Context): Boolean = runCatching {
-        val installer = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            context.packageManager.getInstallSourceInfo(context.packageName).installingPackageName
-        } else {
-            @Suppress("DEPRECATION")
-            context.packageManager.getInstallerPackageName(context.packageName)
-        }
-        val trusted = setOf("com.android.vending", "org.fdroid.fdroid", null)
-        installer != null && installer !in trusted
-    }.getOrDefault(false)
 }

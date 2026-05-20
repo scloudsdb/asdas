@@ -3,16 +3,21 @@ package site.orionhub.music.security
 import android.app.AlertDialog
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import site.orionhub.music.BuildConfig
 
 open class SecureActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        performSecurityCheck()
+        if (!BuildConfig.DEBUG) {
+            performSecurityCheck()
+        }
     }
 
     override fun onResume() {
         super.onResume()
-        performSecurityCheck()
+        if (!BuildConfig.DEBUG) {
+            performSecurityCheck()
+        }
     }
 
     private fun performSecurityCheck() {

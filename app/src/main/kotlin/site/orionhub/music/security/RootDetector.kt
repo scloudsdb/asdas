@@ -18,7 +18,8 @@ object RootDetector {
     )
 
     fun detect(context: Context): Boolean {
-        return hasSuBinary() || hasRootPackages(context) || hasTestKeys() || hasRwSystem()
+        val checks = listOf(hasSuBinary(), hasRootPackages(context), hasTestKeys())
+        return checks.count { it } >= 2
     }
 
     private fun hasSuBinary(): Boolean =
@@ -33,11 +34,4 @@ object RootDetector {
 
     private fun hasTestKeys(): Boolean =
         android.os.Build.TAGS?.contains("test-keys") == true
-
-    private fun hasRwSystem(): Boolean = runCatching {
-        val process = Runtime.getRuntime().exec("mount")
-        val output = process.inputStream.bufferedReader().readText()
-        process.waitFor()
-        output.contains("/system") && output.contains("rw,")
-    }.getOrDefault(false)
 }

@@ -8,17 +8,9 @@ object XposedDetector {
         "org.lsposed.lspd.core.Main",
     )
 
-    fun detect(): Boolean =
-        hasXposedClasses() || isInStackTrace()
+    fun detect(): Boolean = hasXposedClasses()
 
     private fun hasXposedClasses(): Boolean = targetClasses.any { cls ->
         runCatching { Class.forName(cls) }.isSuccess
     }
-
-    private fun isInStackTrace(): Boolean = runCatching {
-        Thread.currentThread().stackTrace.any { frame ->
-            val name = frame.className.lowercase()
-            name.contains("xposed") || name.contains("lsposed")
-        }
-    }.getOrDefault(false)
 }
