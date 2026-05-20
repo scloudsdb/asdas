@@ -196,7 +196,7 @@ private fun PlaylistItem(name: String, songCount: String) {
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Icon(
-                        imageVector = Icons.AutoMirrored.Filled.PlaylistPlay,
+                        imageVector = Icons.Filled.MusicNote,
                         contentDescription = null,
                         tint = MaterialTheme.colorScheme.onPrimaryContainer,
                     )
